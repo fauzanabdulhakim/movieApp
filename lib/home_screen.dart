@@ -1,4 +1,5 @@
 //import 'dart:async';
+import 'package:bookingnonton/halaman_detail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -15,7 +16,6 @@ class SearchApp extends StatelessWidget {
     );
   }
 }
-
 
 class HomeView extends StatefulWidget {
   @override
@@ -98,6 +98,38 @@ class _HomeViewState extends State<HomeView> {
     // Tambahkan teks sesuai kebutuhan
   ];
 
+  final List<String> titles = [
+    'Movie Title 1',
+    'Movie Title 2',
+    'Sweet Home Season 2',
+    'Movie Title 4',
+    // Add more movie titles here...
+  ];
+
+  final List<String> actors = [
+    'Actor Name 1',
+    'Actor Name 2',
+    'Actor Name 3',
+    'Actor Name 4',
+    // Add more actor names here...
+  ];
+
+  final List<String> categories = [
+    'Category 1',
+    'Category 2',
+    'Horror, Action',
+    'Category 4',
+    // Add more categories here...
+  ];
+
+  final List<String> synopses = [
+    'Synopsis 1',
+    'Synopsis 2',
+    'Synopsis 3',
+    'Synopsis 4',
+    // Add more synopses here...
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,19 +160,32 @@ class _HomeViewState extends State<HomeView> {
                     },
                   ),
                   items: imageBanner.map((url) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                          ),
-                          child: Image.network(
-                            url,
-                            fit: BoxFit.cover,
+                    int index = imageBanner.indexOf(url);
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPage(
+                              imageUrl: url,
+                              title: titles[index],
+                              actor: actors[index],
+                              category: categories[index],
+                              synopsis: synopses[index],
+                            ),
                           ),
                         );
                       },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                        ),
+                        child: Image.network(
+                          url,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     );
                   }).toList(),
                 ),
@@ -152,7 +197,8 @@ class _HomeViewState extends State<HomeView> {
                   return Container(
                     width: 7,
                     height: 7,
-                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                    margin:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: index == _currentSlide
@@ -386,7 +432,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 20, left: 30, right: 30,bottom: 20),
+      padding: EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
       decoration: BoxDecoration(
         color: Colors.grey[800],
         boxShadow: [
