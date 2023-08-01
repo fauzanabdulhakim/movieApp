@@ -20,17 +20,21 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Details'),
+        backgroundColor: Colors.grey[800],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
+            AspectRatio(
+              aspectRatio: 3/4, // Anda bisa mengatur rasio sesuai kebutuhan
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             SizedBox(height: 16.0),
@@ -43,17 +47,38 @@ class DetailPage extends StatelessWidget {
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Text('Aktor: $actor'),
+              child: Text(
+                'AKTOR',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(actor),
             ),
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Text('Kategori: $category'),
+              child: Text(
+                'KATEGORI',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(category),
             ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Text('Sinopsis: $synopsis'),
+              child: Text(
+                'SINOPSIS',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(synopsis),
             ),
           ],
         ),
@@ -61,4 +86,3 @@ class DetailPage extends StatelessWidget {
     );
   }
 }
-

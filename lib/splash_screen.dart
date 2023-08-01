@@ -1,4 +1,5 @@
 // import 'package:bookingnonton/home_screen.dart';
+import 'package:bookingnonton/home_screen.dart';
 import 'package:bookingnonton/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -34,14 +35,27 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         // Ganti bagian ini dengan kode untuk menampilkan gambar logo dari assets
-        child: Image.asset('assets/app1.png'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/app1.png'),
+            //SizedBox(height: 10), // Jarak antara gambar dan teks
+            Text(
+              'Versi 0.10.0',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+
+
