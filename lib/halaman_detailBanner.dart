@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailBannerPage extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String actor;
   final String category;
   final String synopsis;
 
-  DetailPage({
+  DetailBannerPage({
     required this.imageUrl,
     required this.title,
     required this.actor,
@@ -28,7 +28,7 @@ class DetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
-              aspectRatio: 3/4, // Anda bisa mengatur rasio sesuai kebutuhan
+              aspectRatio: 16/9, // Anda bisa mengatur rasio sesuai kebutuhan
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(

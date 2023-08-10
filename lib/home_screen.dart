@@ -1,5 +1,6 @@
 //import 'dart:async';
 import 'package:bookingnonton/halaman_detail.dart';
+import 'package:bookingnonton/halaman_detailBanner.dart';
 import 'package:bookingnonton/kategori.dart';
 import 'package:bookingnonton/login_view.dart';
 import 'package:flutter/material.dart';
@@ -320,7 +321,7 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailPage(
+                            builder: (context) => DetailBannerPage(
                               imageUrl: url,
                               title: judulImageBanner[index],
                               actor: aktorImageBanner[index],
@@ -334,7 +335,7 @@ class _HomeViewState extends State<HomeView> {
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
                           url,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fill,
                         ),
                       ),
                     );
@@ -404,7 +405,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               Container(
-                height: 120,
+                height: 140,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageNewAdded.length,
@@ -435,7 +436,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             imageNewAdded[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -455,7 +456,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               Container(
-                height: 120,
+                height: 140,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageTren.length,
@@ -486,7 +487,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             imageTren[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -506,7 +507,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               Container(
-                height: 120,
+                height: 140,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageRekomendasi.length,
@@ -537,7 +538,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             imageRekomendasi[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -557,7 +558,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               Container(
-                height: 120,
+                height: 140,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageLanjutNonton.length,
@@ -588,7 +589,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             imageLanjutNonton[index],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
